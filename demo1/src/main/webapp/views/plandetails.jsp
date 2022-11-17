@@ -24,6 +24,25 @@
 					<th>SELECT</th>
 				</tr>
 			</thead>
+			
+			<tbody style="text-align:center">
+			<c:forEach var="course" items="${courses}">
+				<tr>
+					<td>${Offer.planId}</td>
+					<td>${Offer.days}</td>
+					<td>${Offer.talkTime}</td>
+					<td>${Offer.data}</td>
+					<td>${Offer.price}</td>
+					<td><a href="/select?id=${Offer.planId}" class="btn btn-sm btn-danger">select</a>
+					
+					
+					</td>
+				</tr>
+
+			</c:forEach>
+			</tbody>
+
+		</table>
 
      
 
