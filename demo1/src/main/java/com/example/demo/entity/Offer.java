@@ -20,6 +20,13 @@ public class Offer {
 		@ManyToOne
 		private Operator operator;
 		
+		
+		public Offer() {
+			super();
+		}
+
+
+
 		public Offer(int planId, String days, String talkTime, String data, String price) {
 			super();
 			this.planId = planId;

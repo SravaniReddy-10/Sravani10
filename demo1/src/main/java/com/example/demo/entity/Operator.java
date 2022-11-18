@@ -25,7 +25,11 @@ public class Operator {
     @OneToMany(mappedBy = "operator")
     private List<Offer> offer;
 	
-    public Operator(int operatorId, String operatorName) {
+    public Operator() {
+		super();
+	}
+
+	public Operator(int operatorId, String operatorName) {
 		super();
 		this.operatorId = operatorId;
 		this.operatorName = operatorName;

@@ -8,14 +8,14 @@
 </head>
 <body>
 
-<form action ="operatordetails" method="post">
+<form action ="showDetails" method="post">
       phone number:<input type="text" name="phonenumber"><br><br>
       
       select operator:
       <select name="operator" id="operator">
-      <option value="1">airtel</option>
-      <option value="2">jio</option>
-      <option value="3">vodafone</option>
+      <option value="1001">airtel</option>
+      <option value="1002">jio</option>
+      <option value="1003">vodafone</option>
        </select><br><br>
        
        <input type="submit" value="submit">

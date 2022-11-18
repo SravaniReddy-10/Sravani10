@@ -27,12 +27,12 @@ public class RechargeController {
 		return"home";
 	}
 	
-	@PostMapping("showData")
-	public ModelAndView showData(@RequestParam("operator") Integer oId,@RequestParam("phonenumber") Long phn) {
+	@PostMapping("showDetails")
+	public ModelAndView showDetails(@RequestParam("operator") Integer operatorId,@RequestParam("phonenumber") Long phoneNumber ) {
 		
 		ModelAndView mv = new ModelAndView("plandetails");
-		mv.addObject("offerslists",oRepo.findByOperator(oId));
-		mv.addObject("phonenumber",phn);
+		mv.addObject("offerslists",oRepo.findByOperator(operatorId));
+		mv.addObject("phonenumber",phoneNumber );
 		return mv;
 		
 	}

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page import = "com.example.demo.entity.Offer" %>
+    <%@ page import = "java.util.List "%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,40 +11,58 @@
 <body>
     
     
-    <h1 align="center" style ="text-decoration:underline">Select plan from below</h1>
-    <br>
-       
-       <div align="center">
-		<table border="2" width="70%" cellpadding="2">
-			<thead>
-				<tr>
-					<th>PLANID</th>
-					<th>DAYS</th>
-					<th>TALKTIME</th>
-					<th>DATA</th>
-					<th>PRICE</th>
-					<th>SELECT</th>
-				</tr>
-			</thead>
-			
-			<tbody style="text-align:center">
-			<c:forEach var="course" items="${courses}">
-				<tr>
-					<td>${Offer.planId}</td>
-					<td>${Offer.days}</td>
-					<td>${Offer.talkTime}</td>
-					<td>${Offer.data}</td>
-					<td>${Offer.price}</td>
-					<td><a href="/select?id=${Offer.planId}" class="btn btn-sm btn-danger">select</a>
-					
-					
-					</td>
-				</tr>
+<% List<Offer> offersList = (List<Offer>) request.getAttribute("offerslists");%>   
+ <% Long phoneNumber = (Long) request.getAttribute("phonenumber");%>
 
-			</c:forEach>
-			</tbody>
+    
+    <div class = "container">
+    <table class = "table">
+        <tr>
+        <th></th>
+        <th>Plan Id</th>
+        <th>days</th>
+        <th>Talktime</th>
+        <th>Data</th>
+        <th>Price</th>
+         </tr>
+  <tr>
+    <% for(Offer o: offersList) { %>
+        <form action = "saveplan" method="post">
+        <tr>
+            <td>
+            <input type="radio"  name="planId" value=<%= o.getPlanId() %>>
+            </td>
+            <td>
+                <% out.print(o.getPlanId()); %>
+            </td>
+            <td>
+                <% out.print(o.getDays()); %>
+            </td>
+            <td>
+                <% out.print(o.getTalkTime()); %>
+            </td>
+            <td>
+                <% out.print(o.getData()); %>
+            </td>
+            <td>
+                <% out.print(o.getPrice()); %>
+            </td>
 
-		</table>
+
+
+       </tr>
+    <% } %>    
+        
+    </table>
+      <input type="hidden"  name="phonenumber" value=<%=phoneNumber %>>
+      <input type = "submit" value="Submit">
+    </form>
+</body>
+    
+    </div>
+    
+    
+    
 
      
 
