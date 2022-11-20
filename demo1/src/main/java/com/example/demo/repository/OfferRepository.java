@@ -14,5 +14,12 @@ public interface OfferRepository extends JpaRepository <Offer,Integer>{
 	
 	@Query(value = "select * from plan o where o.operator_operator_id =:operatorId",nativeQuery = true)
 	List<Offer> findByOperator(@Param("operatorId") int operator);
+	
+	
+	@Query(value = "select * from plan o where o.plan_id =:planId",nativeQuery = true)
+	List<Offer> findByPlanId(@Param("planId") int plan);
+	
+	
+
 
 }

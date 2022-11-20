@@ -27,7 +27,7 @@
          </tr>
   <tr>
     <% for(Offer o: offersList) { %>
-        <form action = "saveplan" method="post">
+        <form action = "saveDetails" method="post">
         <tr>
             <td>
             <input type="radio"  name="planId" value=<%= o.getPlanId() %>>

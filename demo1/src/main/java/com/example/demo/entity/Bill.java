@@ -2,30 +2,37 @@ package com.example.demo.entity;
 
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "Bill")
 
+
+
 public class Bill {
 	@Id
+	@GeneratedValue(generator="trans_seq",strategy=GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "trans_seq",initialValue=10000,allocationSize=1)
 	private long transactionId;
 	private int planId;
 	
 
 	private long phoneNumber;
 	
-	private static long idGen = 100000L;
+	
 	
 	public Bill() {
 		super();
-		 this.transactionId = ++idGen;
+		 
 	}
 
 	public Bill( int planId, long phoneNumber) {
 		super();
-		this.transactionId = ++idGen;
+		
 		this.planId = planId;
 		this.phoneNumber = phoneNumber;
 	}
@@ -34,9 +41,7 @@ public class Bill {
 		return transactionId;
 	}
 
-	public void setTransactionId(long transactionId) {
-		this.transactionId = transactionId;
-	}
+	
 
 	public int getPlanId() {
 		return planId;
@@ -52,6 +57,11 @@ public class Bill {
 
 	public void setPhoneNumber(long phoneNumber) {
 		this.phoneNumber = phoneNumber;
+	}
+
+	@Override
+	public String toString() {
+		return "Bill [transactionId=" + transactionId + ", planId=" + planId + ", phoneNumber=" + phoneNumber + "]";
 	}
 	
 	

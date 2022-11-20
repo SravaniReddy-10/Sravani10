@@ -21,6 +21,9 @@ public class Offer {
 		private Operator operator;
 		
 		
+		
+
+
 		public Offer() {
 			super();
 		}
@@ -79,7 +82,12 @@ public class Offer {
 		}
 
 		
-		
+		@Override
+		public String toString() {
+			return "Offer [planId=" + planId + ", days=" + days + ", talkTime=" + talkTime + ", data=" + data
+					+ ", price=" + price + ", operator=" + operator + "]";
+		}
+
 		
 		
 
